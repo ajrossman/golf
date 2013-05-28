@@ -84,9 +84,7 @@ class LeaderBoard
 
   end
 
-  def self.sort_standings(golfer_stats_hash)
-    sorted_golf_standings = golfer_stats_hash.sort_by {|k| k[:total_score]}
-  end
+
 
   def self.package_individual_golfer_standing_and_put_into_array(par_array,golfer,strokes_array)
 
@@ -101,6 +99,12 @@ class LeaderBoard
       individual_standing[index] = golfer_stats_hash
       index += 1
     end
+
+  def self.sort_standings(golfer_stats_hash)
+    sorted_golf_standings = golfer_stats_hash.sort_by {|k| k[:total_score]}
+    sorted_golf_standings.each {|standing| puts "#{standing[:total_score]} #{standing[:total_strokes]} #{standing[:name]}"}
+  end
+
 
     return individual_standing
   end

@@ -84,7 +84,6 @@ describe LeaderBoard do
       get_full_test_file
       golfer_stats_hash = LeaderBoard.package_individual_golfer_standing_and_put_into_array(@course_layout,@golfer,@strokes_data)
       standings = LeaderBoard.sort_standings(golfer_stats_hash)
-      puts standings
       expect(standings[0][:total_score] < standings[1][:total_score]).to be_true
     end
   end
